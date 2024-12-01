@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Ranim Aoun",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -120, "left": 239.5, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -12.8,
+      "left": 380,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": -6.4, "left": 68, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 62.4,
+      "left": 193.5,
+      "rotate": 270,
+      "attrs": { "temperature": "13.4", "humidity": "67.5" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -266.7,
+      "left": 277.9,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "lcd1:GND", "nano:GND.1", "black", [ "h-9.6", "v-67.2", "h9.6" ] ],
+    [ "lcd1:VCC", "nano:5V", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "nano:A4", "gold", [ "h0" ] ],
+    [ "lcd1:SCL", "nano:A5", "orange", [ "h0" ] ],
+    [ "ldr1:VCC", "nano:5V", "red", [ "h0" ] ],
+    [ "ldr1:GND", "nano:GND.1", "black", [ "h134.4", "v-67.6", "h9.6" ] ],
+    [ "ldr1:AO", "nano:A0", "magenta", [ "h48", "v-0.7" ] ],
+    [ "dht1:GND", "lcd1:GND", "black", [ "h67.2", "v-86.4" ] ],
+    [ "dht1:VCC", "lcd1:VCC", "red", [ "h86.4", "v-105.6" ] ],
+    [ "dht1:SDA", "nano:2", "yellow", [ "h28.8", "v-153.7", "h124.8", "v-105.6", "h-76.8" ] ],
+    [ "ntc1:VCC", "nano:5V", "red", [ "v19.2", "h124.8", "v105.6", "h-105.6" ] ],
+    [ "ntc1:GND", "nano:GND.1", "black", [ "v9.6", "h134.4", "v124.8", "h0", "v9.6", "h-115.2" ] ],
+    [ "ntc1:OUT", "nano:A1", "blue", [ "v28.8", "h-105.5", "v96", "h67.2" ] ]
+  ],
+  "dependencies": {}
+}
